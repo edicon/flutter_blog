@@ -7,7 +7,11 @@ class CrudMethods {
     });
   }
 
-  getData() async {
+  Future<Stream<QuerySnapshot>> getData() async {
     return await Firestore.instance.collection("blogs").snapshots();
+  }
+
+  Stream<QuerySnapshot> getStreamData() {
+    return Firestore.instance.collection("blogs").snapshots();
   }
 }

@@ -49,11 +49,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    crudMethods.getData().then((result) {
-      setState(() {
-        blogsStream = result;
-      });
+    // Use Stream
+    setState(() {
+      blogsStream = crudMethods.getStreamData();
     });
+    // Use Feture<Stream>
+    // crudMethods.getData().then((result) {
+    //   setState(() {
+    //     blogsStream = result;
+    //   });
+    // });
     super.initState();
   }
 
