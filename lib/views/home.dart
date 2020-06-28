@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blog/services/crud.dart';
 import 'package:flutter_blog/views/create_blog.dart';
@@ -11,7 +12,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   CrudMethods crudMethods = new CrudMethods();
 
-  Stream blogsStream;
+  Stream<QuerySnapshot> blogsStream;
 
   Widget BlogsList() {
     return Container(
